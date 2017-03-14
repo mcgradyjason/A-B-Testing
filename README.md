@@ -5,4 +5,4 @@ In the experiment, Udacity tested a change where if the student clicked "start f
 
 ![Experiment Screenshot](Final Project- Experiment Screenshot.png)
 
-The **hypothesis** was that this might set clearer expectations for students upfront, thus reducing the number of frustrated students who left the free trial because they didn't have enough time—without significantly reducing the number of students to continue past the free trial and eventually complete the course.
+The ***hypothesis*** was that this might set clearer expectations for students upfront, thus reducing the number of frustrated students who left the free trial because they didn't have enough time—without significantly reducing the number of students to continue past the free trial and eventually complete the course.
