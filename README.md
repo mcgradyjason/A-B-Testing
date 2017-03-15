@@ -18,7 +18,14 @@ The **hypothesis** was that this might set clearer expectations for students upf
 The choice of invariant metrics are listed above. Since the unit of diversion is a cookie, it's better to choose number of cookies rather than user-ids as invariant metrics for sanity check, we definitely want to make sure that control group and experiment group have equal amount of users assigned. Number of clicks is also favored, because it's a population sizing metrics that should be equally assigned to control and experiment group. CTR is simply a number calculated by number of cookies and number of clicks, this metrics is not expected to change while number of cookies and number of clicks are fixed.
 
 ### Evaluation Metrics
+
 * Gross conversion: That is, number of user-ids to complete checkout and enroll in the free trial divided by number of unique cookies to click the "Start free trial" button. (dmin= 0.01)
 * Retention: That is, number of user-ids to remain enrolled past the 14-day boundary (and thus make at least one payment) divided by number of user-ids to complete checkout. (dmin=0.01)
 * Net conversion: That is, number of user-ids to remain enrolled past the 14-day boundary (and thus make at least one payment) divided by the number of unique cookies to click the "Start free trial" button. (dmin= 0.0075)
-You should also decide now what results you will be looking for in order to launch the experiment. Would a change in any one of your evaluation metrics be sufficient? Would you want to see multiple metrics all move or not move at the same time in order to launch? This decision will inform your choices while designing the experiment.
+
+Selected evaluation metrics are listed above, the reason why gross conversion is chosen is that this metrics is expected to be lower in the experiment group compared to control group. The number of students who fininsh check out after clicked free trial button are expected to be reduced due to the warning in the experiment group. Given that number of cookies is fixed, the gross conversion will be different between two groups, which is a part of null hypothesis.
+
+Retention is expected to be different between control and experiment groups. Null hypothesis states that showing up the warning will not reduce the number of students who past the free trial and finish the course. Like we discuss above, number of user-id to complete checkout will be expected to different between control and experiment groups, the retention will be also different, which makes it a good metrics for testing null hypothesis.
+
+Net conversion should be roughly the same, since number of user-ids pass the free trial and number of cookies to click the button is fixed according to null hypothesis like we discussed above, it is also a good evaluation metrics.
+
