@@ -66,7 +66,7 @@ First, we decided not to use Bonferroni correction, since the evalution metrics 
 
 When it comes to calculate duration, I soon realize that choosing `Retention` as evaluation metrics may not be appropriate in Audacity case. Even if we expose 100% of Audacity traffic to this experiment, which is `40000` unique cookies visited website per day, the duration of this experiment is `4741212 / 40000 = 118.53`, which is about 119 days. It is obviously too long to launch a single experiment with diverting full traffic of the whole site. On the other hand, it potentially exposes more business risk that customers might not like this change and lead to drop in pageview and enrollment. This will have a significantly negative impact on the business if this change will remain 100+ days.
 
-At this stage, we should **only keep two evaluation metrics** : `Gross conversion` and `Net conversion`, since net converison requires more pageview than gross conversion, the duration is calcualted by `685325 / 40000 = 17.133125`, which is about 18 days with full site traffic. It is also practical to reduce the proportion of traffic exposed to experiment to reduce the risk.
+At this stage, we should **only keep two evaluation metrics** : `Gross conversion` and `Net conversion`, since net converison requires more pageview than gross conversion, the duration is calcualted by `685325 / 40000 = 17.133125`, which is about 18 days with full site traffic. It is also practical to reduce the proportion of traffic exposed to experiment to lower the risk. In this case, I prefer to divert whole traffic to the experiment to get result as soon as possible.
 
 
 
