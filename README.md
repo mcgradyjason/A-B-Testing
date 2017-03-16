@@ -91,9 +91,16 @@ First, let's sum up the total number of click on 'Free Trial' button, noting tha
 The total number of click in the control group is `17293` and `17260` in the experiment group. The total number of enrollment in the control group is `3785` and `3423` in the experiment group. The total number of payment in the control group is `2033` and `1945` in the experiment group. 
 
 Next, we need to calculate pooled probability and pooled standard error to find 95% confidence interval of each evaluation metrics, based on the formula as followed:
-`
-   p_pooled = (X_cnt + X_exp) / (N_cnt + N_exp)`
-  `se_pooled = sqrt(p_pooled * (1-p_pooled) * (1./N_cnt + 1./N_exp))`
 
-* Gross conversion: pooled probability = `(3785 + 3423) / (17293 + 17260) = 0.2086`, the error margin is `1.96 * sqrt(0.2086 * (1 - 0.2086) * (1/17293 + 1/17260)) = 0.0086`. 
+     p_pooled = (X_cnt + X_exp) / (N_cnt + N_exp)
+     se_pooled = sqrt(p_pooled * (1-p_pooled) * (1./N_cnt + 1./N_exp))
 
+* Gross conversion: pooled probability = `(3785 + 3423) / (17293 + 17260) = 0.2086`, the error margin is `1.96 * sqrt(0.2086 * (1 - 0.2086) * (1/17293 + 1/17260)) = 0.0086`. The 95% confidence interval is (-0.0291, -0.0120). Since the practical significance level = 0.01, we can conclude that the result is both statistically and practically significant. In the experiment group, the gross conversion is significant lower than control group, indicating that the change has negative impact by reducing gross conversion rate.
+
+* Net conversion: pooled probability = `(2033 + 1945) / (17293 + 17260) = 0.1151`, the error margin is `1.96 * sqrt(0.1151 * (1 - 0.1151) * (1/17293 + 1/17260)) = 0.0067`. The 95% confidence interval is (-0.0116, 0.0018). Since the practical significance level = 0.0075, we can conclude that the result is neither statistically nor practically significant. In the experiment group, the net conversion is not significant different from control group, indicating that the change has on impact by reducing gross conversion rate.
+
+
+| Metric | dmin | Observed Difference | CI Lower Bound | CI Upper Bound | Result |
+|:------:|:--------------:|:--------------:|:--------------:|:--------------:|:------:|
+| Gross Conversion | 0.01 | -0.0206 | -.0291 | -.0120 | Satistically and Practically Significant |
+| Net Conversion | 0.0075 | -0.0049 | -0.0116 | 0.0018 | Neither Statistically nor Practically Significant |
