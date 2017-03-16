@@ -31,7 +31,7 @@ Net conversion should be roughly the same, since number of user-ids pass the fre
 
 ### Measuring Variability
 
-Baseline values can be found there [baseline values](https://docs.google.com/spreadsheets/d/1MYNUtC47Pg8hdoCjOXaHqF-thheGpUshrFA21BAJnNc/edit#gid=0)
+Baseline values can be found [there](https://docs.google.com/spreadsheets/d/1MYNUtC47Pg8hdoCjOXaHqF-thheGpUshrFA21BAJnNc/edit#gid=0)
 
 Given that baseline CTP on `Free Trial` button is `0.08`, and sample size of 5000 cookies visited homepage everyday. We can calculate number of cookies click `Free Trial` button is `5000 * 0.08 = 400`. The number of user-ids to remain enrolled past the 14-day boundary equals to `0.20625 * 400 = 82.5`.
 
@@ -51,6 +51,8 @@ The baseline gross conversion is `0.20625`, retention is `0.53` and net conversi
 #### Number of Samples vs. Power
 
 First, we decided not to use Bonferroni correction, since the evalution metrics we have chosen are closely correlated with each other, basically they are calcuated by three variables, which they will tend to move together while some variables are changing. And Bonferroni correction are more conservative when dealing with correlated evaluation metrics.
+
+All the calculation is done by [online calculator](http://www.evanmiller.org/ab-testing/sample-size.html)
 
 * Gross conversion: Given that `gross conversion = 20.625%`, `alpha = 0.05`, `1 - beta = 0.8`, `dmin = 1%`. Sample size needed per variation is `25835`. Noting that we should have both control and experiment groups with same sample size, and gross conversion captures number of cookies clicked the button while we need to calculate number of pageview. Recall that, `click-through-probability on button is 0.08`, so the number of pageview need is calculated by `25835 * 2 / 0.08 = 645875`.
 
@@ -73,7 +75,7 @@ At this stage, we should **only keep two evaluation metrics** : `Gross conversio
 ## Experiment Analysis
 ### Sanity Checks
 
-First, we sum up the number in control and experiment group seperately. The total number of cookies visited homepage in control group is `345543` and `344660` in the experiment group. The total number of cookies clicked "Free Trial" button in the control group is `28378` and `28325` in the experiment group.
+First, we sum up the [number](https://docs.google.com/spreadsheets/d/1Mu5u9GrybDdska-ljPXyBjTpdZIUev_6i7t4LRDfXM8/edit#gid=0) in control and experiment group seperately. The total number of cookies visited homepage in control group is `345543` and `344660` in the experiment group. The total number of cookies clicked "Free Trial" button in the control group is `28378` and `28325` in the experiment group.
 
 * Number of cookies: number of cookies are expected to be equally assigned into control and experiment group, so the expected probability should be `0.5`. The error margin can be calcualted by `1.96 * sqrt(0.5 * 0.5 / (345543 + 344660)) = 0.0012`, the 95% confidence interval should be (0.4988, 0.5012), while observed value in the control group is `345543 / (345543 + 344660) = 0.5006`. We can conclude that sanity check is passed for this invariant metrics.
 
@@ -109,7 +111,7 @@ Next, we need to calculate pooled probability and pooled standard error to find 
 
 ### Sign Tests
 
-We checked difference between control and experiment group day by day, and find that gross conversion in experiment group is smaller than control group in 19 out of 23 days. Based on online calculator, the two-side p value is `0.0026` under the null hypothesis that this is totally by chance, so we could reject null hypothesis that conclude that result is significantly different. While, there are 13 days that the net conversion in experiment group is smaller than control group, and the p value is `0.6776`, meaning that it is likely that the outcome is simply by chance. So we should say the result is not statistically significant.
+We checked difference between control and experiment group day by day, and find that gross conversion in experiment group is smaller than control group in 19 out of 23 days. Based on [online calculator](http://graphpad.com/quickcalcs/binomial2/), the two-side p value is `0.0026` under the null hypothesis that this is totally by chance, so we could reject null hypothesis that conclude that result is significantly different. While, there are 13 days that the net conversion in experiment group is smaller than control group, and the p value is `0.6776`, meaning that it is likely that the outcome is simply by chance. So we should say the result is not statistically significant.
 
 | Metric | p-value  | Statistically Significant|
 |:------:|:--------------:|:--------------:|
