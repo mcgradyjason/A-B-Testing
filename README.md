@@ -85,3 +85,15 @@ First, we sum up the number in control and experiment group seperately. The tota
 | Number of clicks on "start free trial" | 0.5005 | 0.4959 | 0.5042 | Pass |
 | Click-through-probability | 0.0822 | 0.0812 | 0.0830 | Pass |
 
+### Check for Practical and Statistical Significance
+
+First, let's sum up the total number of click on 'Free Trial' button, noting that enrollment and payment are only available from Oct 11 to Nov 2, so total number of click should be adjusted to this period of time, rather than the whole period that we used in sanity check.
+The total number of click in the control group is `17293` and `17260` in the experiment group. The total number of enrollment in the control group is `3785` and `3423` in the experiment group. The total number of payment in the control group is `2033` and `1945` in the experiment group. 
+
+Next, we need to calculate pooled probability and pooled standard error to find 95% confidence interval of each evaluation metrics, based on the formula as followed:
+`
+   p_pooled = (X_cnt + X_exp) / (N_cnt + N_exp)`
+  `se_pooled = sqrt(p_pooled * (1-p_pooled) * (1./N_cnt + 1./N_exp))`
+
+* Gross conversion: pooled probability = `(3785 + 3423) / (17293 + 17260) = 0.2086`, the error margin is `1.96 * sqrt(0.2086 * (1 - 0.2086) * (1/17293 + 1/17260)) = 0.0086`. 
+
