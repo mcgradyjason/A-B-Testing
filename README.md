@@ -31,6 +31,8 @@ Net conversion should be roughly the same, since number of user-ids pass the fre
 
 ### Measuring Variability
 
+Baseline values can be found there [baseline values](https://docs.google.com/spreadsheets/d/1MYNUtC47Pg8hdoCjOXaHqF-thheGpUshrFA21BAJnNc/edit#gid=0)
+
 Given that baseline CTP on `Free Trial` button is `0.08`, and sample size of 5000 cookies visited homepage everyday. We can calculate number of cookies click `Free Trial` button is `5000 * 0.08 = 400`. The number of user-ids to remain enrolled past the 14-day boundary equals to `0.20625 * 400 = 82.5`.
 
 The baseline gross conversion is `0.20625`, retention is `0.53` and net conversion is `0.1093125`. Assume that they follow binoimial ditribution, and standard deviation should be calculated based on `sqrt(p * (1-p) / N)`.
@@ -124,7 +126,7 @@ I am neutral to this change.
 
 The hypothesis was that this might set clearer expectations for students upfront, thus reducing the number of frustrated students who left the free trial because they didn't have enough time — without significantly reducing the number of students to continue past the free trial and eventually complete the course.
 
-First, based on effect size test and sign test, the gross conversion in experiment group is significantly and practical lower than control group. In the other words, the number of students who choose to enroll in free trial indeed decreases due to the warning, which aligns with what null hypothesis expects to happen.
+First, based on effect size test and sign test, the gross conversion in experiment group is significantly and practically lower than control group. In the other words, the number of students who choose to enroll in free trial indeed decreases due to the warning, which aligns with what null hypothesis expects to happen.
 
 Then, since net conversion rate is not statistically significant, the number of students who eventually pass the free trial and make a payment is not different among experiment and control group, which is also stated in the null hypothesis. At this point, we can conclude that the hypothesis is correct.
 
