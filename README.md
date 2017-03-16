@@ -44,3 +44,26 @@ The baseline gross conversion is `0.20625`, retention is `0.53` and net conversi
 | Gross Conversion  | 0.0202 |
 | Retention         | 0.0549 |
 | Net Conversion    | 0.0156 |
+
+### Sizing
+#### Number of Samples vs. Power
+
+First, we decided not to use Bonferroni correction, since the evalution metrics we have chosen are closely correlated with each other, basically they are calcuated by three variables, which they will tend to move together while some variables are changing. And Bonferroni correction are more conservative when dealing with correlated evaluation metrics.
+
+* Gross conversion: Given that `gross conversion = 20.625%`, `alpha = 0.05`, `1 - beta = 0.8`, `dmin = 1%`. Sample size needed per variation is `25835`. Noting that we should have both control and experiment groups with same sample size, and gross conversion captures number of cookies clicked the button while we need to calculate number of pageview. Recall that, `click-through-probability on button is 0.08`, so the number of pageview need is calculated by `25835 * 2 / 0.08 = 645875`.
+
+* Retention: Similarly, given that that `retention = 53%`, `alpha = 0.05`, `1 - beta = 0.8`, `dmin = 1%`. Sample size needed per variation is `39115`. In this case, retention captures number of users who actually finish checkout, in order to convert it into number of pageview needed, we need `gross conversion` and `CTP on button` as followed: `39115 * 2 / 0.20625 / 0.08 = 4741212`.
+
+* Net conversion: Given that `net conversion = 10.93125%`, `alpha = 0.05`, `1 - beta = 0.8`, `dmin = 0.75%`. Sample size needed per variation is `27413`, similarly, the number of pageview needed is `27413 * 2 / 0.08 = 685325`.
+
+| Evaluation Metric | Pagenew Needed |
+|:-------------------:|:--------------------:|
+| Gross Conversion  | 645875 |
+| Retention         | 4741212 |
+| Net Conversion    | 685325 |
+
+
+
+
+
+
