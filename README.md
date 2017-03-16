@@ -29,3 +29,18 @@ Retention is expected to be different between control and experiment groups. Nul
 
 Net conversion should be roughly the same, since number of user-ids pass the free trial and number of cookies to click the button is fixed according to null hypothesis like we discussed above, it is also a good evaluation metrics.
 
+### Measuring Variability
+
+Given that baseline CTP on 'Free Trial' button is '0.08', and sample size of 5000 cookies visited homepage everyday. We can calculate number of cookies click 'Free Trial' button is '5000 * 0.08 = 400'. The number of user-ids to remain enrolled past the 14-day boundary equals to '0.20625 * 400 = 82.5'.
+
+The baseline gross conversion is '0.20625', retention is '0.53' and net conversion is '0.1093125'. Assume that they follow binoimial ditribution, and standard deviation should be calculated based on 'sqrt(p * (1-p) / N)'.
+
+* Standard deviation of gross conversion: p = 0.20625, N = 400, SE = 0.0202
+* Standard deviation of retention: p = 0.53, N = 82.5, SE = 0.0549
+* Standard deviation of net conversion: p = 0.1093125, N = 400, SE = 0.0156
+
+| Evaluation Metric | Standard Deviation |
+|:-------------------:|:--------------------:|
+| Gross Conversion  | 0.0202 |
+| Retention         | 0.0549 |
+| Net Conversion    | 0.0156 |
