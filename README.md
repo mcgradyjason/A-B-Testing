@@ -113,3 +113,19 @@ We checked difference between control and experiment group day by day, and find 
 |:------:|:--------------:|:--------------:|
 | Gross Conversion | 0.0026 | Yes |
 | Net Conversion | 0.6776 | No |
+
+### Summary
+
+We decided not to use Bonferroni correction, since the evalution metrics we have chosen are closely correlated with each other, basically they are calcuated by three variables, which they will tend to move together while some variables are changing. And Bonferroni correction are more conservative when dealing with correlated evaluation metrics.
+
+## Recommendation
+
+I am neutral to this change. 
+
+The hypothesis was that this might set clearer expectations for students upfront, thus reducing the number of frustrated students who left the free trial because they didn't have enough time — without significantly reducing the number of students to continue past the free trial and eventually complete the course.
+
+First, based on effect size test and sign test, the gross conversion in experiment group is significantly and practical lower than control group. In the other words, the number of students who choose to enroll in free trial indeed decreases due to the warning, which aligns with what null hypothesis expects to happen.
+
+Then, since net conversion rate is not statistically significant, the number of students who eventually pass the free trial and make a payment is not different among experiment and control group, which is also stated in the null hypothesis. At this point, we can conclude that the hypothesis is correct.
+
+However, this change doesn't increase the number of student to pass the free trial and make a payment, that's to say, there is no financial benefit of making this change to Udacity. This change will only decrease number of students who enroll in the free trial who might quit before 14 days period even if they have a try. Since the real situation meets what hypothesis states, it is okay to launch this change to improve student experience, but keep in mind that this change will not keep more student in the program.
