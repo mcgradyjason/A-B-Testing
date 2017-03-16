@@ -104,3 +104,12 @@ Next, we need to calculate pooled probability and pooled standard error to find 
 |:------:|:--------------:|:--------------:|:--------------:|:--------------:|:------:|
 | Gross Conversion | 0.01 | -0.0206 | -.0291 | -.0120 | Satistically and Practically Significant |
 | Net Conversion | 0.0075 | -0.0049 | -0.0116 | 0.0018 | Neither Statistically nor Practically Significant |
+
+### Sign Tests
+
+We checked difference between control and experiment group day by day, and find that gross conversion in experiment group is smaller than control group in 19 out of 23 days. Based on online calculator, the two-side p value is `0.0026` under the null hypothesis that this is totally by chance, so we could reject null hypothesis that conclude that result is significantly different. While, there are 13 days that the net conversion in experiment group is smaller than control group, and the p value is `0.6776`, meaning that it is likely that the outcome is simply by chance. So we should say the result is not statistically significant.
+
+| Metric | p-value  | Statistically Significant|
+|:------:|:--------------:|:--------------:|
+| Gross Conversion | 0.0026 | Yes |
+| Net Conversion | 0.6776 | No |
