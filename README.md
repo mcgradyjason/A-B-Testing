@@ -68,6 +68,20 @@ When it comes to calculate duration, I soon realize that choosing `Retention` as
 
 At this stage, we should **only keep two evaluation metrics** : `Gross conversion` and `Net conversion`, since net converison requires more pageview than gross conversion, the duration is calcualted by `685325 / 40000 = 17.133125`, which is about 18 days with full site traffic. It is also practical to reduce the proportion of traffic exposed to experiment to lower the risk. In this case, I prefer to divert whole traffic to the experiment to get result as soon as possible.
 
+## Experiment Analysis
+### Sanity Checks
 
+First, we sum up the number in control and experiment group seperately. The total number of cookies visited homepage in control group is `345543` and `344660` in the experiment group. The total number of cookies clicked "Free Trial" button in the control group is `28378` and `28325` in the experiment group.
 
+* Number of cookies: number of cookies are expected to be equally assigned into control and experiment group, so the expected probability should be `0.5`. The error margin can be calcualted by `1.96 * sqrt(0.5 * 0.5 / (345543 + 344660)) = 0.0012`, the 95% confidence interval should be (0.4988, 0.5012), while observed value in the control group is `345543 / (345543 + 344660) = 0.5006`. We can conclude that sanity check is passed for this invariant metrics.
+
+* Number of clicks: number of clicks are expected to be equally assigned into control and experiment group, so the expected probability should be `0.5`. The error margin can be calcualted by `1.96 * sqrt(0.5 * 0.5 / (28378 + 28325)) = 0.0041`, the 95% confidence interval should be (0.4959, 0.5041), while observed value in the control group is `28378 / (28378 + 28325) = 0.5005`. We can conclude that sanity check is passed for this invariant metrics.
+
+* Click-through-probability: In the control group, CTP is `28378 / 345543 = 0.0821`. The error margin could be calculated similarly by `1.96 * sqrt(0.0821 * (1 - 0.0821) / 345543 = 0.0009`, the 95% confidence interval should be (0.0812, 0.0830), the observed value is `28325 / 344660 = 0.0822`, so the sanity check is passed.
+
+| Metric | Observed Value | CI Lower Bound | CI Upper Bound | Result |
+|:------:|:--------------:|:--------------:|:--------------:|:------:|
+| Number of Cookies | 0.5006 | 0.4988 | 0.5012 | Pass |
+| Number of clicks on "start free trial" | 0.5005 | 0.4959 | 0.5042 | Pass |
+| Click-through-probability | 0.0822 | 0.0812 | 0.0830 | Pass |
 
