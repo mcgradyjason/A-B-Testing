@@ -134,4 +134,20 @@ Then, since net conversion rate is not statistically significant, the number of 
 
 However, this change doesn't increase the number of student to pass the free trial and make a payment, that's to say, there is no financial benefit of making this change to Udacity. This change will only decrease number of students who enroll in the free trial who might quit before 14 days period even if they have a try. Since the real situation meets what hypothesis states, it is okay to launch this change to improve student experience, but keep in mind that this change will not keep more student in the program.
 
-## Follow-Up Experiment
+## Follow-Up Experiment ： How to Reduce Cancellation 
+
+Recently I cancel my Spotify premium service, after I click the cancel button, it plays a song to show they're sad to know that I'm gonna leave. I think this is a great idea if Udacity could apply this when a student decide to quit free trial. New-enrolled student will see a welcome video right after they enroll in any Nanodegree, I think Udacity should play a similar video when student try to cancel their service. In the video, they could encourage students to keep up, tell them where they could find help if they get stuck or suggest other classes and study resources.
+
+* They hypothesis is that playing this video when students choose to quit free trial will reduce the number of students who cancel the service during the free trial. The number of students who quit free trial are expected to be lower in experiment group compared to control group. The unit of diversion is cookie.
+
+* The invariant metrics could be `number of cookies visited the homepage`, `click-through-probability on 'Free Trial' button` and `gross conversion`.
+
+* The evaluation metrics could be `net conversion`. `Net conversion` in the experiment group are expected to be higher compared to control group. 
+
+* Duration: since this experiment is similar to what we just did, the duration is expected to be about 18 days with full site traffic.
+
+* Before jumping into analyzing result, we should first apply sanity check on invariant metrics. `number of cookies visited the homepage`, `click-through-probability on 'Free Trial' button` and `gross conversion` should be equally assigned.
+
+* After sanity check is passed, we could compare evaluation metrics with statistical significance level and practical significance level. Also, sign test should be performed to confirm with effect size test.
+
+* Recommendation could be given based on analysis of evaluation metrics.
