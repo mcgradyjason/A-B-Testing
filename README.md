@@ -15,7 +15,9 @@ The **hypothesis** was that this might set clearer expectations for students upf
 * Number of clicks: That is, number of unique cookies to click the "Start free trial" button (which happens before the free trial screener is trigger). (dmin=240)
 * Click-through-probability: That is, number of unique cookies to click the "Start free trial" button divided by number of unique cookies to view the course overview page. (dmin=0.01)
 
-The choice of invariant metrics are listed above. Since the unit of diversion is a cookie, it's better to choose number of cookies rather than user-ids as invariant metrics for sanity check, we definitely want to make sure that control group and experiment group have equal amount of users assigned. Number of clicks is also favored, because it's a population sizing metrics that should be equally assigned to control and experiment group. CTR is simply a number calculated by number of cookies and number of clicks, this metrics is not expected to change while number of cookies and number of clicks are fixed.
+The choice of invariant metrics are listed above. Since the unit of diversion is a cookie, it's better to choose number of cookies rather than user-ids as invariant metrics for sanity check, we definitely want to make sure that control group and experiment group have equal amount of users assigned. 
+
+Number of clicks is also favored, because it's a population sizing metrics that should be equally assigned to control and experiment group. CTR is simply a number calculated by number of cookies and number of clicks, this metrics is not expected to change while number of cookies and number of clicks are fixed.
 
 ### Evaluation Metrics
 
@@ -124,25 +126,23 @@ We decided not to use Bonferroni correction, since the evalution metrics we have
 
 ### Recommendation
 
-I am neutral to this change. 
+I recommend not to launch this experiment. 
 
 The hypothesis was that this might set clearer expectations for students upfront, thus reducing the number of frustrated students who left the free trial because they didn't have enough time — without significantly reducing the number of students to continue past the free trial and eventually complete the course.
 
 First, based on effect size test and sign test, the gross conversion in experiment group is significantly and practically lower than control group. In the other words, the number of students who choose to enroll in free trial indeed decreases due to the warning, which aligns with what null hypothesis expects to happen.
 
-Then, since net conversion rate is not statistically significant, the number of students who eventually pass the free trial and make a payment is not different among experiment and control group, which is also stated in the null hypothesis. At this point, we can conclude that the hypothesis is correct.
-
-However, this change doesn't increase the number of student to pass the free trial and make a payment, that's to say, there is no financial benefit of making this change to Udacity. This change will only decrease number of students who enroll in the free trial who might quit before 14 days period even if they have a try. Since the real situation meets what hypothesis states, it is okay to launch this change to improve student experience, but keep in mind that this change will not keep more student in the program.
+Then, since net conversion rate is not statistically significant, the number of students who eventually pass the free trial and make a payment is not different among experiment and control group, which is also stated in the null hypothesis. At this point, we can conclude that the hypothesis is correct. However, the lower bound of confidence interval is actually lower than lower bound of practical significance level, indicating this change might bring negative impact and we shoulb be cautious about this result. I highly suggest that we need more investigation to this before launching this change. So, at this point, it's better to not launch this change.
 
 ## Follow-Up Experiment ： How to Reduce Cancellation 
 
 Recently I cancel my Spotify premium service, after I click the cancel button, it plays a song to show they're sad to know that I'm gonna leave. I think this is a great idea if Udacity could apply this when a student decide to quit free trial. New-enrolled student will see a welcome video right after they enroll in any Nanodegree, I think Udacity should play a similar video when student try to cancel their service. In the video, they could encourage students to keep up, tell them where they could find help if they get stuck or suggest other classes and study resources.
 
-* They hypothesis is that playing this video when students choose to quit free trial will reduce the number of students who cancel the service during the free trial. The number of students who quit free trial are expected to be lower in experiment group compared to control group. The unit of diversion is cookie.
+* They hypothesis is that playing this video when students choose to quit free trial will reduce the number of students who cancel the service during the free trial. The number of students who quit free trial are expected to be lower in experiment group compared to control group. The unit of diversion is user-id.
 
-* The invariant metrics could be `number of cookies visited the homepage`, `click-through-probability on 'Free Trial' button` and `gross conversion`.
+* The invariant metrics could be `number of user-id enrolled in free trial`.
 
-* The evaluation metrics could be `net conversion`. `Net conversion` in the experiment group are expected to be higher compared to control group. 
+* The evaluation metrics could be `retention`. `Net conversion` in the experiment group are expected to be higher compared to control group. 
 
 * Duration: since this experiment is similar to what we just did, the duration is expected to be about 18 days with full site traffic.
 
